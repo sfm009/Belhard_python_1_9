@@ -26,3 +26,31 @@ import math
 
 # радиус сферы (Земли)
 EARTH_R = 6372795
+
+
+def distance(a_lat, a_lon, b_lat, b_lon):
+    a_lat = float(a_lat) * math.pi / 180
+    a_lon = float(a_lon) * math.pi / 180
+    b_lat = float(b_lat) * math.pi / 180
+    b_lon = float(b_lon) * math.pi / 180
+
+    a_lat_sin = math.sin(a_lat)
+    a_lat_cos = math.cos(a_lat)
+    b_lat_sin = math.sin(b_lat)
+    b_lat_cos = math.cos(b_lat)
+
+    delta = math.fabs(a_lon - b_lon)
+
+    delta_sin = math.sin(delta)
+    delta_cos = math.cos(delta)
+
+    y = math.sqrt(math.pow(b_lat_cos * delta_sin, 2)) + math.pow(a_lat_cos * b_lat_sin - a_lat_sin * b_lat_cos *
+                                                                 delta_cos, 2)
+    x = a_lat_sin * b_lat_sin + a_lat_cos * b_lat_cos * delta_cos
+
+    ad = math.atan2(y, x)
+
+    return ad * EARTH_R
+
+
+print(distance(53.906090, 27.542471, 49.185890, -2.104943))
