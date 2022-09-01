@@ -10,3 +10,17 @@
 Подсказка:
 Понадобится позитивный просмотр вперед (?=чтото)
 """
+import re
+
+
+def check_password(string: str):
+    pattern = re.compile(r'(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[*|_|/])(?:.{8,40})')
+    if pattern.match(string):
+        print('valid password')
+    else:
+        print('not valid password')
+
+
+
+
+check_password('Pass_word123')
