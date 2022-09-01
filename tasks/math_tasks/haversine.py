@@ -44,8 +44,7 @@ def distance(a_lat, a_lon, b_lat, b_lon):
     delta_sin = math.sin(delta)
     delta_cos = math.cos(delta)
 
-    y = math.sqrt(math.pow(b_lat_cos * delta_sin, 2)) + math.pow(a_lat_cos * b_lat_sin - a_lat_sin * b_lat_cos *
-                                                                 delta_cos, 2)
+    y = math.sqrt(math.pow(b_lat_cos * delta_sin, 2)) + math.pow(a_lat_cos * b_lat_sin - a_lat_sin * b_lat_cos * delta_cos, 2)
     x = a_lat_sin * b_lat_sin + a_lat_cos * b_lat_cos * delta_cos
 
     ad = math.atan2(y, x)

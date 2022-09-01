@@ -21,6 +21,4 @@ def check_password(string: str):
         print('not valid password')
 
 
-
-
 check_password('Pass_word123')
