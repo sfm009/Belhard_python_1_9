@@ -6,3 +6,14 @@
 
 Функция должна возвращать время в новой временной зоне.
 """
+import datetime
+
+
+def convert_date():
+    timestamp = datetime.timedelta(hours=3)
+    current_zone = datetime.datetime.now()
+    new_zone = current_zone + timestamp
+    return current_zone, new_zone
+
+
+print(convert_date())
